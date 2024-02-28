@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'todo/styles.css/' %}">
+    <title>Simple Todo App</title>
+</head>
+<body>
+<div class="todo-container">
+    <!-- User Navigation -->
+    <div class="user-nav">
+        <span>Welcome, {{ request.user.email }}</span>
+        <form method="POST" action="{% url 'accounts:logout-user' %}">
+            {% csrf_token %}
+            <input type="submit" value="LogOut" id="logoutBtn" >
+        </form>
+    </div>
+
+    <!-- Form Elemnt for adding new tasks -->
+    <form method="POST" action="{% url 'todo:create-task' %}">
+        {% csrf_token %}
+        <input type="text" id="newTask" placeholder="Add a new task" name="title" required>
+        <input type="submit" value="Add Task">
+    </form>
+
+    {% for task in tasks %}
+        <div class="task">
+            {% if task.complete %}
+                <span>
+                    <del>{{ task.title }} - {{ task.created_date|date:"d M Y" }}</del>
+                </span>
+            {% else %}
+                <span>{{ task.title }}  - {{ task.created_date|date:"d M Y" }} </span>
+            {% endif %}
+
+            <div class="task-buttons">
+
+                <form method="POST" action="{% url 'todo:delete-task' pk=task.pk %}">
+                    {% csrf_token %}
+                    <input type="submit" value="delete" class="delete-btn">
+                </form>
+
+                <form method="POST" action="{% url 'todo:complete-task' pk=task.pk %}"> 
+                    {% csrf_token %}
+                    <input type="submit" value="done" class="done-btn">
+                </form>
+
+                
+            </div>
+        </div>
+    {% endfor %}
+
+
+</div>
+</body>
+</html>

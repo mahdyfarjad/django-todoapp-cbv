@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/register-styles.css/' %}">
+    <title>Register - Todo App</title>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Register for Todo App</h2>
+    <form class="register-form" method="POST" action="">
+        {% csrf_token %}
+        <input type="text" id="username" placeholder="email" name="email" required>
+        <input type="password" id="password" placeholder="Password" name="password1" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" name="password2" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="register-link">
+        <p>Already have an account? <a href="#">Login</a></p>
+    </div>
+</div>
+
+</body>
+</html>

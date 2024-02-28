@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'accounts/styles.css' %}">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form class="login-form" method="POST" action="">
+        {% csrf_token %}
+        <input type="text" id="username" placeholder="Username" name="username" required>
+        <input type="password" id="password" placeholder="Password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+        <p>Don't have an account? <a href="#">Create Account</a></p>
+    </div>
+</div>
+
+</body>
+</html>

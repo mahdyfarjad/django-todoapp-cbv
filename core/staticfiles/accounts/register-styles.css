@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.register-container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.register-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+.register-link,
+.have-account-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a,
+.have-account-link a {
+    color: #3498db;
+    text-decoration: none;
+}
