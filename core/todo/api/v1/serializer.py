@@ -8,10 +8,11 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ['id', 'user', 'title', 'complete', 'created_date']
+        fields = ['id', 'title', 'complete', 'created_date']
         read_only_fieldss = ['user']
     
     def create(self, validated_data):
-        validated_data['user'] = user.objects.get(id = self.context.get('request').id)
+        validated_data['user'] = user.objects.get(id = self.context.get('request').user.id)
         return super().create(validated_data)
+        
     
