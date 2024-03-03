@@ -1,3 +1,11 @@
 django
 pillow
 python-decouple
+
+# restframework
+djangorestframework
+markdown       # Markdown support for the browsable API.
+django-filter  # Filtering support
+
+pytest
+pytest-django

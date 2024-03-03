@@ -4,12 +4,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DeleteView, CreateView
 from .models import Task
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class TaskListView(ListView):
+class TaskListView(LoginRequiredMixin, ListView):
     # model = Task
-    
+    login_url = reverse_lazy('accounts:login-user')
     template_name = 'todo/main.html'
     context_object_name = 'tasks'
     
