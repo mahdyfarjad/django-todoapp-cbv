@@ -1,20 +1,19 @@
-name: Docker Image CI
+name: Django Project Test and Deploy
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
 
-  build:
-
+  Test:
+    name: Test
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: SetUp Docker-Compose
+    - name: Setup Docker-Compose
       run: docker-compose up -d
     - name: Run Tests
-      run: docker-compose exec backend sh -c "pytest ."
+      run: docker exec backend sh -c "flake8 && pytest ."
