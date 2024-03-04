@@ -14,5 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: SetUp Docker-Compose
-      run: False
+    - name: Setup docker-compose
+      run: docker-compose up -d
+    - name: run tests
+      run: docker exec backend sh -c "pytest ."
