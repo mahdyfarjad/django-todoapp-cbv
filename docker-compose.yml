@@ -1,5 +1,4 @@
-
-version: 'v2.24.3-desktop.1'
+version: '25.0.2'
 
 services:
   backend:
