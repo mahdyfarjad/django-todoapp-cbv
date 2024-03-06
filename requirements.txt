@@ -9,3 +9,5 @@ django-filter  # Filtering support
 
 pytest
 pytest-django
+
+Faker
